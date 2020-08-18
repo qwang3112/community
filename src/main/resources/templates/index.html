@@ -15,7 +15,7 @@
         <div class="ui inverted stackable secondary menu">
             <h2 class="ui teal header item">Ericsson南京分son</h2>
             <a href="#" class="m-item item m-mobile-hide"><i class="fort awesome icon"></i>首页</a>
-            <a href="#" class="m-item item m-mobile-hide"><i class="list ul icon"></i>分类</a>
+            <a href="#" class="m-item item m-mobile-hide"><i class="list ul icon"></i>版块</a>
             <a href="#" class="m-item item m-mobile-hide"><i class="tags icon"></i>标签</a>
             <a href="#" class="m-item item m-mobile-hide"><i class="archive icon"></i>归档</a>
             <a href="#" class="m-item item m-mobile-hide"><i class="info icon"></i>关于</a>
@@ -63,7 +63,7 @@
                                             <div class="item">
                                                 <img src="../static/images/avatar.jpg" th:src="@{${blog.user.avatar}}" alt="" class="ui avatar image">
                                                 <div class="content">
-                                                    <a th:href="@{/about}" class="header" th:text="${blog.user.nickName}"></a>
+                                                    <a class="header" th:text="${blog.user.nickName}"></a>
                                                 </div>
                                             </div>
                                             <div class="item">
@@ -121,7 +121,7 @@
                     <div class="ui secondary segment">
                         <div class="ui two column grid">
                             <div class="column">
-                                <i class="list icon"></i>板块
+                                <i class="list icon"></i>版块
                             </div>
                             <div class="right aligned column">
                                 <a th:href="@{/types}">more <i class="angle right icon"></i></a>

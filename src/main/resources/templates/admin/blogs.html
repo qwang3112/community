@@ -3,7 +3,7 @@
 <head th:replace="admin/common :: head(~{::title})">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>博客管理</title>
+    <title>后台管理</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css"/>
     <link rel="stylesheet" href="../../static/css/me.css">
@@ -15,7 +15,7 @@
         <div class="ui inverted stackable secondary menu">
             <h2 class="ui teal header item">后台管理</h2>
             <a href="#" class="m-item item m-mobile-hide"><i class="fort awesome icon"></i>博客</a>
-            <a href="#" class="m-item item m-mobile-hide"><i class="list ul icon"></i>分类</a>
+            <a href="#" class="m-item item m-mobile-hide"><i class="list ul icon"></i>版块</a>
             <a href="#" class="m-item item m-mobile-hide"><i class="tags icon"></i>标签</a>
             <div class="right menu m-mobile-hide m-item">
                 <div class="ui dropdown item">
@@ -83,7 +83,7 @@
             <tr>
                 <th class="one wide"></th>
                 <th class="four wide">标题</th>
-                <th class="three wide">分类</th>
+                <th class="three wide">版块</th>
                 <th class="one wide">推荐</th>
                 <th class="three wide">更新时间</th>
                 <th class="one wide">状态</th>
@@ -130,7 +130,7 @@
 <!--底部-->
 <footer th:replace="admin/common :: footer" class="m-padded-tb-big m-container" style="text-align: center;">
     <!--版权所有-->
-    <p class="m-text-thin m-text-space m-opacity-tiny">Copyright © 2020 Blog designed by cijee</p>
+    <p class="m-text-thin m-text-space m-opacity-tiny">Copyright © 2020 Blog designed by qwang</p>
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>

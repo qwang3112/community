@@ -28,8 +28,20 @@
                         </div>
                         <div class="field">
                             <div class="ui left icon input">
+                                <i class="user icon"></i>
+                                <input type="text" name="nickname" placeholder="昵称">
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="ui left icon input">
                                 <i class="lock icon"></i>
                                 <input type="password" name="password" placeholder="密码">
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="ui left icon input">
+                                <i class="lock icon"></i>
+                                <input type="password" name="ackpassword" placeholder="确认密码">
                             </div>
                         </div>
                         <button type="submit" class="ui fluid large teal submit button">注   册</button>
@@ -55,11 +67,25 @@
                     prompt: '请输入用户名'
                 }]
             },
+            nickname: {
+                identifier: 'nickname',
+                rules: [{
+                    type: 'empty',
+                    prompt: '请输入昵称'
+                }]
+            },
             password: {
                 identifier: 'password',
                 rules: [{
                     type: 'empty',
                     prompt: '请输入密码'
+                }]
+            },
+            ackpassword: {
+                identifier: 'ackpassword',
+                rules: [{
+                    type: 'empty',
+                    prompt: '请确认密码'
                 }]
             }
         }

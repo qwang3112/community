@@ -3,6 +3,7 @@ package com.qwang.blog.service.impl;
 import com.qwang.blog.model.po.User;
 import com.qwang.blog.repository.UserRepository;
 import com.qwang.blog.service.UserService;
+import com.qwang.blog.util.AvatarUtils;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
@@ -27,7 +28,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User saveUser(User user){
-        user.setAvatar("/images/avatar.jpg");
+        user.setAvatar(AvatarUtils.getRandomAvatar());
         user.setEmail("example@hotmail.com");
         user.setType(0);
         user.setCreatedTime(new Date());

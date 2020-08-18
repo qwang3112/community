@@ -64,4 +64,11 @@ public class BlogShowController {
         }
         return REDIRECT_LIST;
     }
+
+    @GetMapping("/blog/{id}/delete")
+    public String delete(@PathVariable Long id, RedirectAttributes attributes) {
+        blogService.removeBlog(id);
+        attributes.addFlashAttribute("message", "删除成功");
+        return "redirect:/mine";
+    }
 }

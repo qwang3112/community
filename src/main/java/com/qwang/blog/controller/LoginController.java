@@ -42,7 +42,7 @@ public class LoginController {
                         HttpSession session,
                         RedirectAttributes attributes) {
         User user = userService.checkUser(username, MD5Utils.string2MD5(password));
-        if (user != null) {
+        if (user != null && user.getType() == 1) {
             user.setPassword(null);
             session.setAttribute("user", user);
             return "redirect:/admin/index";

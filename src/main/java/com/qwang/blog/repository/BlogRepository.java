@@ -1,6 +1,7 @@
 package com.qwang.blog.repository;
 
 import com.qwang.blog.model.po.Blog;
+import com.qwang.blog.model.po.User;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -35,4 +36,6 @@ public interface BlogRepository extends JpaRepository<Blog, Long>, JpaSpecificat
 
     @Query("select b from Blog b where function('date_format', b.updatedTime,'%Y') = ?1")
     List<Blog> findByYear(String year);
+
+    public List<Blog> findAllByUserId(Long userId);
 }

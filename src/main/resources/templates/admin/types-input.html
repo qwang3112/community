@@ -3,7 +3,7 @@
 <head th:replace="admin/common :: head(~{::title})">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>分类新增</title>
+    <title>版块新增</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css"/>
     <link rel="stylesheet" href="../../static/lib/editormd/css/editormd.min.css">
@@ -16,7 +16,7 @@
         <div class="ui inverted stackable secondary menu">
             <h2 class="ui teal header item">后台管理</h2>
             <a href="#" class="m-item item m-mobile-hide"><i class="fort awesome icon"></i>文章</a>
-            <a href="#" class="m-item item m-mobile-hide"><i class="list ul icon"></i>分类</a>
+            <a href="#" class="m-item item m-mobile-hide"><i class="list ul icon"></i>版块</a>
             <a href="#" class="m-item item m-mobile-hide"><i class="tags icon"></i>标签</a>
             <div class="right menu m-mobile-hide m-item">
                 <div class="ui dropdown item">
@@ -54,7 +54,7 @@
             <div class="required field">
                 <div class="ui left labeled input">
                     <label class="ui teal basic label">名称</label>
-                    <input type="text" name="name" placeholder="分类名称" th:value="*{name}">
+                    <input type="text" name="name" placeholder="版块名称" th:value="*{name}">
                 </div>
             </div>
 
@@ -96,7 +96,7 @@
 <!--底部-->
 <footer th:replace="admin/common :: footer" class="m-padded-tb-big m-container" style="text-align: center;">
     <!--版权所有-->
-    <p class="m-text-thin m-text-space m-opacity-tiny">Copyright © 2020 Blog designed by cijee</p>
+    <p class="m-text-thin m-text-space m-opacity-tiny">Copyright © 2020 Blog designed by qwang</p>
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>

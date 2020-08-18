@@ -115,6 +115,12 @@ public class BlogServiceImpl implements BlogService {
         }, pageable);
     }
 
+
+    public List<Blog> listBlogByUserId(Long userId) {
+        Pageable pageable = PageRequest.of(0, 8, Sort.by(Sort.Direction.DESC, "updatedTime"));
+        return blogRepository.findAllByUserId(userId);
+    }
+
     /**
      * 获取热门推荐
      *

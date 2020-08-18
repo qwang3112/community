@@ -1,6 +1,7 @@
 package com.qwang.blog.controller;
 
 import com.qwang.blog.model.po.User;
+import com.qwang.blog.repository.UserRepository;
 import com.qwang.blog.service.UserService;
 import com.qwang.blog.util.MD5Utils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +24,8 @@ public class RegisterController {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private UserRepository userRepository;
 //    public RegisterController(UserService userService) {
 //        this.userService = userService;
 //    }
@@ -34,15 +37,25 @@ public class RegisterController {
 
 
     @PostMapping("/register")
-    public String register(@RequestParam String username,
-                        @RequestParam String password,
+    public String register(@RequestParam String username, @RequestParam String nickname,
+                        @RequestParam String password, @RequestParam String ackpassword,
                         HttpSession session,
                         RedirectAttributes attributes) {
         User user = new User();
-        user.setUsername(username);
-        user.setNickName(username);
-        user.setPassword(MD5Utils.string2MD5(password));
+        if (userRepository.findByUsername(username) == null){
+            user.setUsername(username);
+        } else {
+            attributes.addFlashAttribute("message", "用户名已存在，请重输");
+            return "redirect:/register";
+        }
 
+        user.setNickName(nickname);
+        if (password.equals(ackpassword)){
+            user.setPassword(MD5Utils.string2MD5(password));
+        } else {
+            attributes.addFlashAttribute("message", "两次密码不一致，请重输");
+            return "redirect:/register";
+        }
         User result = userService.saveUser(user);
 
         if (result != null) {
