@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="head(title)">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:replace="${title}"></title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="../static/css/animate.css" th:href="@{/css/animate.css}">
+    <link rel="stylesheet" href="../static/css/tocbot.css" th:href="@{/css/tocbot.css}">
+    <link rel="stylesheet" href="../static/css/prism.css" th:href="@{/css/prism.css}">
+    <link rel="stylesheet" href="../static/css/typo.css" th:href="@{/css/typo.css}">
+    <link rel="stylesheet" href="../static/css/me.css" th:href="@{/css/me.css}">
+<!--    <script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget@latest/autoload.js"></script>-->
+</head>
+<body>
+
+<!-- 导航 -->
+<nav th:fragment="menu" class="ui inverted attached segment m-padded-tb-mini m-shadow-small animated fadeInDownBig">
+    <div class="ui container">
+        <div class="ui inverted stackable secondary menu">
+            <h2 class="ui teal header item" th:text="#{blog.logo}">Ericsson南京分son</h2>
+            <a th:href="@{/}" class="m-item item m-mobile-hide"><i class="home icon"></i>首页</a>
+            <a th:href="@{/types}" class="m-item item m-mobile-hide"><i class="list ul icon"></i>板块</a>
+            <a th:href="@{/tags}" class="m-item item m-mobile-hide"><i class="tags icon"></i>标签</a>
+            <a th:href="@{/write}" class="m-item item m-mobile-hide"><i class="edit icon"></i>发帖</a>
+            <a th:href="@{/about}" class="m-item item m-mobile-hide"><i class="wechat icon"></i>联系版主</a>
+            <div class="right m-item item m-mobile-hide m-padded-tb-big">
+                <form name="search" th:action="@{/search}" method="post" target="_blank">
+                    <div class="ui icon inverted transparent input">
+                        <input th:value="${query}" type="text" name="query" placeholder="搜索"/>
+                        <i onclick="document.forms['search'].submit()" class="search link icon"></i>
+                    </div>
+                </form>
+            </div>
+            <a th:href="@{/register}" class="m-item item m-mobile-hide" th:if="${#lists.isEmpty(session.user)}">注册</a>
+            <a th:href="@{/login}" class="m-item item m-mobile-hide" th:if="${#lists.isEmpty(session.user)}">登录</a>
+            <div class="right menu m-mobile-hide m-item" th:if="${not #lists.isEmpty(session.user)}">
+                <div class="ui dropdown item">
+                    <div class="text">
+                        <img th:src="@{${session.user.avatar}}" alt="" class="ui avatar image">
+                        <span th:text="${session.user.nickName}"></span>
+                    </div>
+                    <i class="dropdown icon"></i>
+                    <div class="menu">
+                        <a th:href="@{/logout}" class="item">注销</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a class="ui menu toggle icon black button m-left-top m-mobile-show">
+        <i class="sidebar icon"></i>
+    </a>
+</nav>
+
+
+<th:block th:fragment="script">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery.scrollto@2.1.2/jquery.scrollTo.min.js"></script>
+    <script src="../static/js/prism.js" th:src="@{/js/prism.js}"></script>
+    <script src="../static/js/tocbot.min.js" th:src="@{/js/tocbot.min.js}"></script>
+    <script src="../static/js/qrcode.min.js" th:src="@{/js/qrcode.min.js}"></script>
+    <script type="text/javascript" th:inline="javascript">
+        $('#newBlog-container').load(/*[[@{/footer/newBlog}]]*/"/footer/newBlog");
+    </script>
+    <script type="text/javascript" color="255,0,0"opacity="0.5"count="99" src="../static/js/canvas-nest.js" th:src="@{/js/canvas-nest.js}"></script>
+</th:block>
+
+</body>
+</html>
