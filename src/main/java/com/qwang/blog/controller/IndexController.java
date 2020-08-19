@@ -4,15 +4,13 @@ import com.qwang.blog.service.BlogService;
 import com.qwang.blog.service.CommentService;
 import com.qwang.blog.service.TagService;
 import com.qwang.blog.service.TypeService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @author qwang
@@ -21,20 +19,15 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class IndexController {
 
-    private final BlogService blogService;
+    @Autowired
+    private BlogService blogService;
+    @Autowired
+    private TypeService typeService;
+    @Autowired
+    private TagService tagService;
 
-    private final TypeService typeService;
-
-    private final TagService tagService;
-
-    private final CommentService commentService;
-
-    public IndexController(BlogService blogService, TypeService typeService, TagService tagService, CommentService commentService) {
-        this.blogService = blogService;
-        this.typeService = typeService;
-        this.tagService = tagService;
-        this.commentService = commentService;
-    }
+    @Autowired
+    private CommentService commentService;
 
     /**
      * 返回首页数据
@@ -52,7 +45,7 @@ public class IndexController {
         model.addAttribute("page", blogService.listBlog(pageable));
         model.addAttribute("types", typeService.listTypeTop(6));
         model.addAttribute("tags", tagService.listTagTop(10));
-        model.addAttribute("recommendBlogs", blogService.listRecommendBlogTop(8));
+        model.addAttribute("recommendBlogs", blogService.listRecommendBlogTop(10));
         return "index";
     }
 

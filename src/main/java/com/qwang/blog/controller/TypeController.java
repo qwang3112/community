@@ -2,6 +2,7 @@ package com.qwang.blog.controller;
 
 import com.qwang.blog.model.po.Type;
 import com.qwang.blog.service.TypeService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -21,11 +22,8 @@ import javax.validation.Valid;
 @RequestMapping("/admin")
 public class TypeController {
 
-    private final TypeService typeService;
-
-    public TypeController(TypeService typeService) {
-        this.typeService = typeService;
-    }
+    @Autowired
+    private TypeService typeService;
 
     @GetMapping("/types")
     public String types(@RequestParam(defaultValue = "0", required = false) Integer page,

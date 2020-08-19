@@ -15,22 +15,14 @@ import javax.servlet.http.HttpSession;
 @Controller
 //@RequestMapping("/")
 public class LoginShowController {
+
     @Autowired
     private UserService userService;
-
-//    public LoginShowController(UserService userService) {
-//        this.userService = userService;
-//    }
 
     @GetMapping("/login")
     public String loginPage() {
         return "/login";
     }
-
-//    @GetMapping("/index")
-//    public String index() {
-//        return "/index";
-//    }
 
     @PostMapping("/login")
     public String login(@RequestParam String username,

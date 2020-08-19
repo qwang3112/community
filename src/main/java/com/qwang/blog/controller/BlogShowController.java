@@ -31,9 +31,6 @@ public class BlogShowController {
     @Autowired
     private TagService tagService;
 
-
-
-
     /**
      * 跳转到写博客页面
      *
@@ -55,6 +52,8 @@ public class BlogShowController {
         blog.setType(typeService.getType(blog.getType().getId()));
         // 获取标签集
         blog.setTags(tagService.listTag(tagIds));
+        // 给默认图片
+        blog.setCover("/images/Ericsson.jpg");
         // 保存到数据库
         Blog b = blogService.saveBlog(blog);
         if (b == null) {

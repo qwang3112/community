@@ -4,6 +4,7 @@ import com.qwang.blog.model.param.BlogParam;
 import com.qwang.blog.model.po.Type;
 import com.qwang.blog.service.BlogService;
 import com.qwang.blog.service.TypeService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -22,14 +23,12 @@ import java.util.List;
 @Controller
 public class TypeShowController {
 
-    private final TypeService typeService;
+    @Autowired
+    private TypeService typeService;
 
-    private final BlogService blogService;
+    @Autowired
+    private BlogService blogService;
 
-    public TypeShowController(TypeService typeService, BlogService blogService) {
-        this.typeService = typeService;
-        this.blogService = blogService;
-    }
 
     /**
      * 分类页面

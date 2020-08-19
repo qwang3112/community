@@ -3,6 +3,7 @@ package com.qwang.blog.controller;
 import com.qwang.blog.model.po.Tag;
 import com.qwang.blog.service.BlogService;
 import com.qwang.blog.service.TagService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -21,13 +22,10 @@ import java.util.List;
 @Controller
 public class TagShowController {
 
-    private final BlogService blogService;
-    private final TagService tagService;
-
-    public TagShowController(BlogService blogService, TagService tagService) {
-        this.blogService = blogService;
-        this.tagService = tagService;
-    }
+    @Autowired
+    private BlogService blogService;
+    @Autowired
+    private TagService tagService;
 
     /**
      * 分类页面

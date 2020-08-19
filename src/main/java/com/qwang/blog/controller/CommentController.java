@@ -5,6 +5,7 @@ import com.qwang.blog.model.po.User;
 import com.qwang.blog.service.BlogService;
 import com.qwang.blog.service.CommentService;
 import com.qwang.blog.util.AvatarUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,14 +21,11 @@ import javax.servlet.http.HttpSession;
 @Controller
 public class CommentController {
 
-    private final CommentService commentService;
+    @Autowired
+    private CommentService commentService;
 
-    private final BlogService blogService;
-
-    public CommentController(CommentService commentService, BlogService blogService) {
-        this.commentService = commentService;
-        this.blogService = blogService;
-    }
+    @Autowired
+    private BlogService blogService;
 
     @GetMapping("/comments/{blogId}")
     public String comments(@PathVariable Long blogId, Model model) {

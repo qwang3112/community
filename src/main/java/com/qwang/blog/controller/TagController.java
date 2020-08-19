@@ -2,6 +2,7 @@ package com.qwang.blog.controller;
 
 import com.qwang.blog.model.po.Tag;
 import com.qwang.blog.service.TagService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -21,11 +22,8 @@ import javax.validation.Valid;
 @RequestMapping("/admin")
 public class TagController {
 
-    private final TagService tagService;
-
-    public TagController(TagService tagService) {
-        this.tagService = tagService;
-    }
+    @Autowired
+    private TagService tagService;
 
     @GetMapping("/tags")
     public String tags(@RequestParam(defaultValue = "0", required = false) Integer page,

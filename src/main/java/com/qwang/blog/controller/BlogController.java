@@ -7,6 +7,7 @@ import com.qwang.blog.model.po.User;
 import com.qwang.blog.service.BlogService;
 import com.qwang.blog.service.TagService;
 import com.qwang.blog.service.TypeService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -30,15 +31,12 @@ public class BlogController {
     private static final String LIST = "admin/blogs";
     private static final String REDIRECT_LIST = "redirect:/admin/blogs";
 
-    private final BlogService blogService;
-    private final TypeService typeService;
-    private final TagService tagService;
-
-    public BlogController(BlogService blogService, TypeService typeService, TagService tagService) {
-        this.blogService = blogService;
-        this.typeService = typeService;
-        this.tagService = tagService;
-    }
+    @Autowired
+    private BlogService blogService;
+    @Autowired
+    private TypeService typeService;
+    @Autowired
+    private TagService tagService;
 
     @GetMapping("/blogs")
     public String blogs(@RequestParam(defaultValue = "0", required = false) Integer page,

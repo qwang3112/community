@@ -26,9 +26,6 @@ public class RegisterController {
 
     @Autowired
     private UserRepository userRepository;
-//    public RegisterController(UserService userService) {
-//        this.userService = userService;
-//    }
 
     @GetMapping("/register")
     public String registerPage() {
