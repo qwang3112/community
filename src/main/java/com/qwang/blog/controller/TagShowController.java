@@ -44,7 +44,6 @@ public class TagShowController {
         model.addAttribute("tags", tags);
         model.addAttribute("page", blogService.listBlog(id, pageable));
         model.addAttribute("activeTagId", id);
-        System.out.println(tags.size());
         return "tags";
     }
 }
