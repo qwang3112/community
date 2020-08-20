@@ -114,10 +114,20 @@ public class BlogServiceImpl implements BlogService {
     }
 
 
-    public List<Blog> listBlogByUserId(Long userId) {
-        Pageable pageable = PageRequest.of(0, 8, Sort.by(Sort.Direction.DESC, "updatedTime"));
-        return blogRepository.findAllByUserId(userId);
+    @Override
+    public Page<Blog> listBlogByUserId(Long userId, Pageable pageable) {
+        return blogRepository.findAll(new Specification<Blog>() {
+            @Override
+            public Predicate toPredicate(Root<Blog> root, CriteriaQuery<?> criteriaQuery, CriteriaBuilder criteriaBuilder) {
+                Join join = root.join("user");
+                return criteriaBuilder.equal(join.get("id"), userId);
+            }
+        }, pageable);
     }
+//    public List<Blog> listBlogByUserId(Long userId) {
+//        Pageable pageable = PageRequest.of(0, 8, Sort.by(Sort.Direction.DESC, "updatedTime"));
+//        return blogRepository.findAllByUserId(userId);
+//    }
 
     /**
      * 获取热门推荐

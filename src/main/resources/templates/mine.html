@@ -32,16 +32,76 @@
     </a>
 </nav>
 <!--中间-->
-<div class="m-padded-tb-large">
+<!--<div class="m-padded-tb-large">-->
+<!--    <div class="ui container">-->
+<!--        <div class="ui segments m-black  animated fadeInRightBig">-->
+<!--            <div th:each="blog : ${myBlogs}" class="ui segment">-->
+<!--                <a th:href="@{/blog/{id}(id=${blog.id})}" th:text="${blog.title}" class="m-black">我的第一篇博客</a>-->
+<!--                <a href="#" th:href="@{/blog/{id}/delete(id=${blog.id})}" class="ui red right aligned container">删除</a>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+
+<div class="m-padded-tb-large m-container-small">
     <div class="ui container">
-        <div class="ui segments m-black  animated fadeInRightBig">
-            <div th:each="blog : ${myBlogs}" class="ui segment">
-                <a th:href="@{/blog/{id}(id=${blog.id})}" th:text="${blog.title}" class="m-black">我的第一篇博客</a>
-                <a href="#" th:href="@{/blog/{id}/delete(id=${blog.id})}" class="ui red right aligned container">删除</a>
+        <!--文章header-->
+        <div class="ui top attached segment animated fadeInLeftBig">
+            <!--两列-->
+            <div class="ui middle aligned two column grid">
+                <div class="column">
+                    <h3 class="ui teal header">我的帖子</h3>
+                </div>
+                <div class="right aligned column">
+                    共&ensp;<h3 class="ui orange header m-text-thin m-inline-block" th:text="${page.totalElements}">14</h3>&ensp;篇
+                </div>
+            </div>
+        </div>
+        <!--文章列表-->
+        <div class="ui teal top attached segment animated bounceInUp" th:if="${page.totalElements}>0">
+
+            <!--文章-->
+            <div th:each="blog : ${page.content}" class="ui vertical segment m-padded m-padded-tb-big">
+                <div class="ui middle aligned stackable mobile reversed grid">
+                    <div class="eleven wide column">
+                        <h3 class="ui header"><a th:href="@{/blog/{id}(id=${blog.id})}" class="m-black" th:text="${blog.title}"></a></h3>
+                        <div class="ui stackable grid">
+                            <div class="row">
+                                <div class="eleven wide column">
+                                    <!--个人信息-->
+                                    <div class="ui horizontal mini link list">
+                                        <div class="item">
+                                            <i class="calendar icon"></i><span th:text="${#dates.format(blog.updatedTime, 'yyyy-MM-dd')}">2020-6-1</span>
+                                        </div>
+                                        <div class="item">
+                                            <i class="eye icon"></i>&ensp;<span th:text="${blog.views}">40</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="five wide column">
+                        <a href="#" th:href="@{/blog/{id}/delete(id=${blog.id})}" class="ui right aligned container">删除</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--分页-->
+        <div class="ui bottom attached segment" th:if="${page.totalPages}>1">
+            <div class="ui middle aligned two column grid">
+                <div class="column">
+                    <a href="#" th:href="@{'/tags/'+${activeTagId}(page=${page.number}-1)}"  th:unless="${page.first}" class="ui mini teal basic button">上一页</a>
+                </div>
+                <div class="right aligned column">
+                    <a href="#" th:href="@{'/tags/'+${activeTagId}(page=${page.number}+1)}"  th:unless="${page.last}" class="ui mini teal basic button">下一页</a>
+                </div>
             </div>
         </div>
     </div>
 </div>
+
+
 
 
 

@@ -46,10 +46,9 @@ public class MineController {
     public String myBlog(@RequestParam(defaultValue = "0", required = false) Integer page,
                          @RequestParam(defaultValue = "8", required = false) Integer size,
                          HttpSession session, Model model) {
-
+        Pageable pageable = PageRequest.of(page, size, Sort.by(Sort.Direction.DESC, "updatedTime"));
         User user = ((User) session.getAttribute("user"));
-        List<Blog> blogs = blogService.listBlogByUserId(user.getId());
-        model.addAttribute("myBlogs", blogs);
+        model.addAttribute("page", blogService.listBlogByUserId(user.getId(), pageable));
         return "mine";
     }
 }
