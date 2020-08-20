@@ -38,4 +38,6 @@ public interface BlogService {
     Blog updateBlog(Long id, Blog blog);
 
     void removeBlog(Long id);
+
+    List<Blog> listBlogTopTen(Integer topSize);
 }

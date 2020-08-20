@@ -42,7 +42,7 @@ public class BlogServiceImpl implements BlogService {
     public Blog getBlog(Long id) {
         Blog blog = blogRepository.findById(id).orElse(null);
         if (blog == null) {
-            throw new NotFoundException("该博客不存在");
+            throw new NotFoundException("该帖子不存在");
         }
         String content = blog.getContent();
         blog.setContent(MarkdownUtils.markdownToHtmlExtensions(content));
@@ -80,7 +80,7 @@ public class BlogServiceImpl implements BlogService {
     }
 
     /**
-     * 获取博客分页
+     * 获取帖子分页
      *
      * @param pageable 分页参数
      * @return 分页结果
@@ -133,12 +133,24 @@ public class BlogServiceImpl implements BlogService {
      * 获取热门推荐
      *
      * @param topSize 条数
-     * @return 博客集合
+     * @return 帖子集合
      */
     @Override
     public List<Blog> listRecommendBlogTop(Integer topSize) {
         Pageable pageable = PageRequest.of(0, topSize, Sort.by(Sort.Direction.DESC, "updatedTime"));
         return blogRepository.findTop(pageable);
+    }
+
+    /**
+     * 获取每日十大推荐
+     *
+     * @param topSize 条数
+     * @return 帖子集合
+     */
+    @Override
+    public List<Blog> listBlogTopTen(Integer topSize) {
+        Pageable pageable = PageRequest.of(0, topSize, Sort.by(Sort.Direction.DESC, "updatedTime"));
+        return blogRepository.findTopTen(pageable);
     }
 
     @Override
@@ -159,9 +171,9 @@ public class BlogServiceImpl implements BlogService {
     }
 
     /**
-     * 保存博客
+     * 保存帖子
      *
-     * @param blog 博客对象
+     * @param blog 帖子对象
      * @return 保存后的结果
      */
     @Override
@@ -173,19 +185,19 @@ public class BlogServiceImpl implements BlogService {
     }
 
     /**
-     * 更新博客
+     * 更新帖子
      *
      * @param id 主键
-     * @param blog 旧的博客对象
-     * @return 新的博客对象
+     * @param blog 旧的帖子对象
+     * @return 新的帖子对象
      */
     @Override
     public Blog updateBlog(Long id, Blog blog) {
         Blog b = blogRepository.findById(id).orElse(null);
         if (b == null) {
-            throw new NotFoundException("该博客不存在");
+            throw new NotFoundException("该帖子不存在");
         }
-        // 将数据库中查到的博客对象的一些字段赋值到新的博客对象中
+        // 将数据库中查到的帖子对象的一些字段赋值到新的帖子对象中
         // 因为直接更新的话，会导致新的对象会覆盖数据库中无需修改的那些字段
         blog.setUpdatedTime(new Date());
         blog.setCreatedTime(b.getCreatedTime());
@@ -195,7 +207,7 @@ public class BlogServiceImpl implements BlogService {
     }
 
     /**
-     * 删除博客
+     * 删除帖子
      * @param id 主键
      */
     @Override

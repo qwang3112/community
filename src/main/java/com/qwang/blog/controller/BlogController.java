@@ -49,7 +49,7 @@ public class BlogController {
     }
 
     /**
-     * 博客搜索
+     * 帖子搜索
      *
      * @param page 页码
      * @param size 页大小
@@ -67,7 +67,7 @@ public class BlogController {
     }
 
     /**
-     * 跳转到写博客页面
+     * 跳转到写帖子页面
      *
      * @param model
      * @return

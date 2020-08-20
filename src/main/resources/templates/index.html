@@ -148,14 +148,14 @@
                 <!--最新推荐-->
                 <div class="ui segments m-black m-margin-top-large animated fadeInRightBig">
                     <div class="ui secondary segment">
-                        <i class="bookmark icon"></i>每日十大
+                        <i class="bookmark icon"></i>本站十大
                     </div>
                     <div th:each="recommendBlog : ${recommendBlogs}" class="ui segment">
                         <a th:href="@{/blog/{id}(id=${recommendBlog.id})}" th:text="${recommendBlog.title}" class="m-black">我的第一篇博客</a>
                     </div>
                 </div>
                 <!--二维码-->
-                <h4 class="ui horizontal divider header animated fadeInRightBig">有事找版主</h4>
+                <h4 class="ui horizontal divider header animated fadeInRightBig">有事找站长</h4>
                 <div class="ui centered card animated fadeInRightBig" style="width: 11em">
                     <img src="../static/images/wechat.jpg" th:src="@{#{author.wechat.account}}" alt="" class="ui rounded image">
                 </div>

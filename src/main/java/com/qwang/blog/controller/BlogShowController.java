@@ -33,7 +33,7 @@ public class BlogShowController {
     private TagService tagService;
 
     /**
-     * 跳转到写博客页面
+     * 跳转到写帖子页面
      *
      * @param model
      * @return

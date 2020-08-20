@@ -83,7 +83,7 @@ public class TypeServiceImpl implements TypeService {
 
     /**
      * 返回前n条热门分类
-     * ASC: 分类下博客的数量
+     * ASC: 分类下帖子的数量
      *
      * @return 分类集合
      */

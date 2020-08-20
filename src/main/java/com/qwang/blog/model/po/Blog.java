@@ -45,7 +45,7 @@ public class Blog {
     @Temporal(TemporalType.TIMESTAMP)
     private Date updatedTime;
 
-    // 博客描述
+    // 帖子描述
     private String description;
 
     @ManyToOne
