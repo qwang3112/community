@@ -3,6 +3,7 @@ package com.qwang.blog.service.impl;
 import com.qwang.blog.model.po.Comment;
 import com.qwang.blog.repository.CommentRepository;
 import com.qwang.blog.service.CommentService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -19,11 +20,8 @@ import java.util.List;
 @Transactional
 public class CommentServiceImpl implements CommentService {
 
-    private final CommentRepository commentRepository;
-
-    public CommentServiceImpl(CommentRepository commentRepository) {
-        this.commentRepository = commentRepository;
-    }
+    @Autowired
+    private CommentRepository commentRepository;
 
     @Override
     public List<Comment> listCommentByBlogId(Long id) {

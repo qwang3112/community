@@ -4,6 +4,7 @@ import com.qwang.blog.model.po.User;
 import com.qwang.blog.repository.UserRepository;
 import com.qwang.blog.service.UserService;
 import com.qwang.blog.util.AvatarUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
@@ -15,11 +16,8 @@ import java.util.Date;
 @Service
 public class UserServiceImpl implements UserService {
 
+    @Autowired
     private UserRepository userRepository;
-
-    public UserServiceImpl(UserRepository userRepository) {
-        this.userRepository = userRepository;
-    }
 
     @Override
     public User checkUser(String username, String password) {

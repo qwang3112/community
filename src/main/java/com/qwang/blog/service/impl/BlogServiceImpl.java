@@ -7,6 +7,7 @@ import com.qwang.blog.model.po.Type;
 import com.qwang.blog.repository.BlogRepository;
 import com.qwang.blog.service.BlogService;
 import com.qwang.blog.util.MarkdownUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -27,11 +28,8 @@ import java.util.*;
 @Transactional
 public class BlogServiceImpl implements BlogService {
 
-    private final BlogRepository blogRepository;
-
-    public BlogServiceImpl(BlogRepository blogRepository) {
-        this.blogRepository = blogRepository;
-    }
+    @Autowired
+    private BlogRepository blogRepository;
 
     /**
      * 获取单个Blog对象

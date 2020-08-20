@@ -5,6 +5,7 @@ import com.qwang.blog.model.po.Type;
 import com.qwang.blog.repository.TypeRepository;
 import com.qwang.blog.service.TypeService;
 import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -22,11 +23,8 @@ import java.util.List;
 @Transactional
 public class TypeServiceImpl implements TypeService {
 
-    private final TypeRepository typeRepository;
-
-    public TypeServiceImpl(TypeRepository typeRepository) {
-        this.typeRepository = typeRepository;
-    }
+    @Autowired
+    private TypeRepository typeRepository;
 
     /**
      * 保存分类实体

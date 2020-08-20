@@ -23,7 +23,7 @@
             <a th:href="@{/}" class="m-item item m-mobile-hide"><i class="home icon"></i>首页</a>
             <a th:href="@{/types}" class="m-item item m-mobile-hide"><i class="list ul icon"></i>版块</a>
             <a th:href="@{/tags}" class="m-item item m-mobile-hide"><i class="tags icon"></i>标签</a>
-            <a th:href="@{/write}" class="m-item item m-mobile-hide"><i class="edit icon"></i>发帖</a>
+            <a th:href="@{/write}" th:if="${not #lists.isEmpty(session.user)}" class="m-item item m-mobile-hide"><i class="edit icon"></i>发帖</a>
             <a th:href="@{/about}" class="m-item item m-mobile-hide"><i class="wechat icon"></i>联系版主</a>
             <div class="right m-item item m-mobile-hide m-padded-tb-big">
                 <form name="search" th:action="@{/search}" method="post" target="_blank">

@@ -5,6 +5,7 @@ import com.qwang.blog.model.po.Tag;
 import com.qwang.blog.repository.TagRepository;
 import com.qwang.blog.service.TagService;
 import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -24,11 +25,8 @@ import java.util.List;
 @Transactional
 public class TagServiceImpl implements TagService {
     
-    private final TagRepository tagRepository;
-
-    public TagServiceImpl(TagRepository tagRepository) {
-        this.tagRepository = tagRepository;
-    }
+    @Autowired
+    private TagRepository tagRepository;
 
     /**
      * 保存标签
