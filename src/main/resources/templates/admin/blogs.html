@@ -13,7 +13,7 @@
 <nav th:replace="admin/common :: menu" class="ui inverted attached segment m-padded-tb-mini m-shadow-small">
     <div class="ui container">
         <div class="ui inverted stackable secondary menu">
-            <h2 class="ui teal header item">后台管理</h2>
+            <h2 class="ui blue header item">后台管理</h2>
             <a href="#" class="m-item item m-mobile-hide"><i class="fort awesome icon"></i>博客</a>
             <a href="#" class="m-item item m-mobile-hide"><i class="list ul icon"></i>版块</a>
             <a href="#" class="m-item item m-mobile-hide"><i class="tags icon"></i>标签</a>
@@ -40,7 +40,7 @@
     <ui class="ui container">
         <div class="right menu">
             <a th:href="@{/admin/blogs/write}" class="item">写博客</a>
-            <a th:href="@{/admin/blogs}" class="active teal item">博客列表</a>
+            <a th:href="@{/admin/blogs}" class="active blue item">博客列表</a>
         </div>
     </ui>
 </div>
@@ -73,12 +73,12 @@
                     </div>
                 </div>
                 <div class="field">
-                    <button type="button" id="search-btn" class="ui teal button">搜索</button>
+                    <button type="button" id="search-btn" class="ui blue button">搜索</button>
                 </div>
             </div>
         </form>
 
-        <table id="table-container" th:fragment="blogList" class="ui compact teal table">
+        <table id="table-container" th:fragment="blogList" class="ui compact blue table">
             <thead class="center aligned">
             <tr>
                 <th class="one wide"></th>
@@ -99,7 +99,7 @@
                 <td th:text="${#dates.format(blog.updatedTime, 'yyyy-MM-dd HH:mm')}"></td>
                 <td th:text="${blog.published} ? '发布' : '草稿'"></td>
                 <td>
-                    <a th:href="@{/admin/blogs/{id}/write(id=${blog.id})}" class="ui mini teal button">编辑</a>
+                    <a th:href="@{/admin/blogs/{id}/write(id=${blog.id})}" class="ui mini blue button">编辑</a>
                     <a th:href="@{/admin/blogs/{id}/delete(id=${blog.id})}" class="ui mini red button">删除</a>
                 </td>
             </tr>
@@ -113,7 +113,7 @@
                         <a onclick="page(this)" th:attr="data-page=${page.number}+1" th:unless="${page.last}"
                            class="item">下一页</a>
                     </div>
-                    <a th:href="@{/admin/blogs/write}" class="ui mini right floated teal button">新增</a>
+                    <a th:href="@{/admin/blogs/write}" class="ui mini right floated blue button">新增</a>
                 </th>
             </tr>
             </tfoot>

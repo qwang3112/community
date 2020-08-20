@@ -13,7 +13,7 @@
 <nav th:replace="common :: menu" class="ui inverted attached segment m-padded-tb-mini m-shadow-small animated fadeInDownBig">
     <div class="ui container">
         <div class="ui inverted stackable secondary menu">
-            <h2 class="ui teal header item">Ericsson南京分son</h2>
+            <h2 class="ui blue header item">Ericsson南京分son</h2>
             <a href="#" class="m-item item m-mobile-hide"><i class="fort awesome icon"></i>首页</a>
             <a href="#" class="m-item item m-mobile-hide"><i class="list ul icon"></i>版块</a>
             <a href="#" class="m-item item m-mobile-hide"><i class="tags icon"></i>标签</a>
@@ -50,15 +50,15 @@
             <!--两列-->
             <div class="ui middle aligned two column grid">
                 <div class="column">
-                    <h3 class="ui teal header">我的帖子</h3>
+                    <h3 class="ui blue header">我的帖子</h3>
                 </div>
                 <div class="right aligned column">
-                    共&ensp;<h3 class="ui orange header m-text-thin m-inline-block" th:text="${page.totalElements}">14</h3>&ensp;篇
+                    共&ensp;<h3 class="ui blue header m-text-thin m-inline-block" th:text="${page.totalElements}">14</h3>&ensp;篇
                 </div>
             </div>
         </div>
         <!--文章列表-->
-        <div class="ui teal top attached segment animated bounceInUp" th:if="${page.totalElements}>0">
+        <div class="ui blue top attached segment animated bounceInUp" th:if="${page.totalElements}>0">
 
             <!--文章-->
             <div th:each="blog : ${page.content}" class="ui vertical segment m-padded m-padded-tb-big">
@@ -91,10 +91,10 @@
         <div class="ui bottom attached segment" th:if="${page.totalPages}>1">
             <div class="ui middle aligned two column grid">
                 <div class="column">
-                    <a href="#" th:href="@{'/tags/'+${activeTagId}(page=${page.number}-1)}"  th:unless="${page.first}" class="ui mini teal basic button">上一页</a>
+                    <a href="#" th:href="@{'/tags/'+${activeTagId}(page=${page.number}-1)}"  th:unless="${page.first}" class="ui mini blue basic button">上一页</a>
                 </div>
                 <div class="right aligned column">
-                    <a href="#" th:href="@{'/tags/'+${activeTagId}(page=${page.number}+1)}"  th:unless="${page.last}" class="ui mini teal basic button">下一页</a>
+                    <a href="#" th:href="@{'/tags/'+${activeTagId}(page=${page.number}+1)}"  th:unless="${page.last}" class="ui mini blue basic button">下一页</a>
                 </div>
             </div>
         </div>

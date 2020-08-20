@@ -14,7 +14,7 @@
 <nav th:replace="common :: menu" class="ui inverted attached segment m-padded-tb-mini m-shadow-small animated fadeInDownBig">
     <div class="ui container">
         <div class="ui inverted stackable secondary menu">
-            <h2 class="ui teal header item">Blog</h2>
+            <h2 class="ui blue header item">Blog</h2>
             <a href="#" class="m-item item m-mobile-hide"><i class="fort awesome icon"></i>首页</a>
             <a href="#" class="m-item item m-mobile-hide"><i class="list ul icon"></i>分类</a>
             <a href="#" class="m-item item m-mobile-hide"><i class="tags icon"></i>标签</a>
@@ -40,16 +40,16 @@
             <!--两列-->
             <div class="ui middle aligned two column grid">
                 <div class="column">
-                    <h3 class="ui teal header" th:text="${page.totalElements}==0 ? '搜索不到你要的结果' : '搜索结果'">搜索结果</h3>
+                    <h3 class="ui blue header" th:text="${page.totalElements}==0 ? '搜索不到你要的结果' : '搜索结果'">搜索结果</h3>
                 </div>
                 <div class="right aligned column">
-                    共&ensp;<h3 class="ui orange header m-text-thin m-inline-block" th:text="${page.totalElements}">14</h3>&ensp;篇
+                    共&ensp;<h3 class="ui blue header m-text-thin m-inline-block" th:text="${page.totalElements}">14</h3>&ensp;篇
                 </div>
             </div>
         </div>
 
         <!--文章列表-->
-        <div class="ui teal top attached segment animated bounceInUp" th:if="${page.totalElements}>0">
+        <div class="ui blue top attached segment animated bounceInUp" th:if="${page.totalElements}>0">
             <!--文章-->
             <div th:each="blog : ${page.content}" class="ui vertical segment m-padded m-padded-tb-big">
                 <div class="ui middle aligned stackable mobile reversed grid">
@@ -75,7 +75,7 @@
                                 </div>
                             </div>
                             <div class="right aligned five wide column">
-                                <a href="#" target="_blank" class="ui teal basic label m-padded-tiny" th:text="${blog.type.name}">项目项目</a>
+                                <a href="#" target="_blank" class="ui blue basic label m-padded-tiny" th:text="${blog.type.name}">项目项目</a>
                             </div>
                         </div>
                     </div>

@@ -16,7 +16,7 @@
 <nav th:replace="common :: menu" class="ui inverted attached segment m-padded-tb-mini m-shadow-small animated fadeInDownBig">
     <div class="ui container">
         <div class="ui inverted stackable secondary menu">
-            <h2 class="ui teal header item">Blog</h2>
+            <h2 class="ui blue header item">Blog</h2>
             <a href="#" class="m-item item m-mobile-hide"><i class="fort awesome icon"></i>首页</a>
             <a href="#" class="m-item item m-mobile-hide"><i class="list ul icon"></i>分类</a>
             <a href="#" class="m-item item m-mobile-hide"><i class="tags icon"></i>标签</a>
@@ -62,7 +62,7 @@
         <div class="ui attached padded segment">
             <!--图标-->
             <div class="ui right aligned basic segment">
-                <div class="ui label basic orange" th:text="${blog.flag}">原创</div>
+                <div class="ui label basic blue" th:text="${blog.flag}">原创</div>
             </div>
             <!--标题-->
             <h2 class="ui center aligned header" th:text="${blog.title}">我的第一篇博客</h2>
@@ -72,17 +72,17 @@
             </div>
             <!--标签-->
             <div class="m-padded-lr-large">
-                <div class="ui basic teal left pointing label"
+                <div class="ui basic blue left pointing label"
                      th:each="tag : ${blog.tags}" th:text="${tag.name}">javase</div>
             </div>
 
             <!--赞赏-->
 <!--            <div th:if="${blog.appreciation}">-->
 <!--                <div class="ui center aligned basic segment">-->
-<!--                    <button id="payButton" class="ui orange basic circular button">赞赏</button>-->
+<!--                    <button id="payButton" class="ui blue basic circular button">赞赏</button>-->
 <!--                </div>-->
 <!--                <div class="ui payArea flowing popup transition hidden">-->
-<!--                    <div class="ui orange basic label">-->
+<!--                    <div class="ui blue basic label">-->
 <!--                        <div class="ui images" style="font-size: inherit !important;">-->
 <!--                            <div class="image">-->
 <!--                                <img src="../static/images/wechat.jpg" th:src="@{/images/alipay.jpg}" alt="支付宝" class="ui rounded bordered image"-->
@@ -119,7 +119,7 @@
         <!--留言-->
         <div class="ui segment" th:if="${blog.commentable}">
             <!--留言列表-->
-            <div id="comment-container" class="ui teal segment">
+            <div id="comment-container" class="ui blue segment">
                 <div th:fragment="commentList">
                     <div class="ui threaded comments" style="max-width: 100%">
                         <h3 class="ui dividing header">评论</h3>
@@ -130,7 +130,7 @@
                             <div class="content">
                                 <a class="author">
                                     <span th:text="${comment.nickName}">Matt</span>&ensp;
-                                    <div class="ui mini basic teal left pointing label m-padded-mini" th:if="${comment.adminComment}">博主</div>
+                                    <div class="ui mini basic blue left pointing label m-padded-mini" th:if="${comment.adminComment}">博主</div>
                                 </a>
                                 <div class="metadata">
                                     <span class="date" th:text="${#dates.format(comment.createdTime, 'yyyy-MM-dd HH:mm')}">Today at 5:42PM</span>
@@ -152,7 +152,7 @@
                                     <div class="content">
                                         <a class="author">
                                             <span th:text="${reply.nickName}">老王</span>
-                                            <div class="ui mini basic teal left pointing label m-padded-mini" th:if="${reply.adminComment}">博主</div>
+                                            <div class="ui mini basic blue left pointing label m-padded-mini" th:if="${reply.adminComment}">博主</div>
                                             &ensp;
                                             <span class="m-blue" style="color: #0eb0c9 !important;" th:text="|@ ${reply.parentComment.nickName}|">@ 小白</span>
                                         </a>
@@ -248,7 +248,7 @@
 <!--                        </div>-->
 <!--                    </div>-->
                     <div class="field m-mobile-wide m-margin-bottom-small m-mobile-wide ui right aligned container">
-                        <button id="comment-btn" type="button" class="ui teal button m-mobile-wide"><i class="edit icon"></i>发布</button>
+                        <button id="comment-btn" type="button" class="ui blue button m-mobile-wide"><i class="edit icon"></i>发布</button>
                     </div>
                 </div>
                 <!-- 显示错误提示信息 -->
@@ -260,8 +260,8 @@
 
 <div class="m-padded m-fixed m-right-bottom">
     <div class="ui vertical icon buttons">
-<!--        <button type="button" class="ui teal toc button">目录</button>-->
-        <a href="#comment-container" class="ui teal button">留言</a>
+<!--        <button type="button" class="ui blue toc button">目录</button>-->
+        <a href="#comment-container" class="ui blue button">留言</a>
         <button type="button" class="ui weixin button"><i class="icon weixin"></i></button>
         <a href="#top" class="ui button"><i class="icon chevron up"></i></a>
     </div>
