@@ -5,6 +5,7 @@ import com.qwang.blog.model.po.User;
 import com.qwang.blog.service.BlogService;
 import com.qwang.blog.service.TagService;
 import com.qwang.blog.service.TypeService;
+import com.qwang.blog.util.CoverUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -53,7 +54,7 @@ public class BlogShowController {
         // 获取标签集
         blog.setTags(tagService.listTag(tagIds));
         // 给默认图片
-        blog.setCover("/images/Ericsson.jpg");
+        blog.setCover(CoverUtils.getRandomCover());
         // 保存到数据库
         Blog b = blogService.saveBlog(blog);
         if (b == null) {
