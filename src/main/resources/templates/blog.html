@@ -72,7 +72,7 @@
             </div>
             <!--标签-->
             <div class="m-padded-lr-large">
-                <div class="ui basic blue left pointing label"
+                <div class="ui basic blue left pointing label m-margin-top-small"
                      th:each="tag : ${blog.tags}" th:text="${tag.name}">javase</div>
             </div>
 
@@ -152,9 +152,9 @@
                                     <div class="content">
                                         <a class="author">
                                             <span th:text="${reply.nickName}">老王</span>
-                                            <div class="ui mini basic blue left pointing label m-padded-mini" th:if="${reply.adminComment}">博主</div>
+                                            <div class="ui mini basic blue left pointing label m-padded-mini" th:if="${reply.adminComment}">帖主</div>
                                             &ensp;
-                                            <span class="m-blue" style="color: #0eb0c9 !important;" th:text="|@ ${reply.parentComment.nickName}|">@ 小白</span>
+                                            <span class="m-black" th:text="|@ ${reply.parentComment.nickName}|">@ 小白</span>
                                         </a>
                                         <div class="metadata">
                                             <span class="date" th:text="${#dates.format(reply.createdTime, 'yyyy-MM-dd HH:mm')}">Just now</span>

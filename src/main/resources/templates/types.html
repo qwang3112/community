@@ -62,7 +62,6 @@
                 <div class="ui middle aligned stackable mobile reversed grid">
                     <div class="eleven wide column">
                         <h3 class="ui header"><a th:href="@{/blog/{id}(id=${blog.id})}" class="m-black" th:text="${blog.title}"></a></h3>
-                        <p class="m-text" th:text="|${blog.description}......|"></p>
                         <div class="ui stackable grid">
                             <div class="eleven wide column">
                                 <!--个人信息-->
@@ -86,7 +85,7 @@
                             </div>
                         </div>
                         <div class="row m-margin-top">
-                            <a href="#" th:href="@{/tags/{id}(id=${tag.id})}" class="ui left pointing basic label m-padded-tiny m-text-thin" th:classappend="${tag.id==activeTagId} ? 'blue'" th:each="tag : ${blog.tags}" th:text="${tag.name}">Java</a>
+                            <a href="#" th:href="@{/tags/{id}(id=${tag.id})}" class="ui left pointing basic label m-padded-tiny m-text-thin m-margin-top-small" th:classappend="${tag.id==activeTagId} ? 'blue'" th:each="tag : ${blog.tags}" th:text="${tag.name}">Java</a>
                         </div>
                     </div>
                     <div class="five wide column">

@@ -85,7 +85,7 @@
                                 </div>
                             </div>
                             <div class="row m-padded-left">
-                                <a href="#" th:href="@{/tags/{id}(id=${tag.id})}" class="ui left pointing basic label m-padded-tiny m-text-thin" th:classappend="${tag.id==activeTagId} ? 'blue'" th:each="tag : ${blog.tags}" th:text="${tag.name}">Java</a>
+                                <a href="#" th:href="@{/tags/{id}(id=${tag.id})}" class="ui left pointing basic label m-padded-tiny m-text-thin m-margin-top-small" th:classappend="${tag.id==activeTagId} ? 'blue'" th:each="tag : ${blog.tags}" th:text="${tag.name}">Java</a>
                             </div>
                         </div>
                     </div>
