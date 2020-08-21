@@ -83,7 +83,7 @@
                             <input type="hidden" name="tagIds" th:value="${tagIds}">
                             <i class="dropdown icon"></i>
                             <div class="default text">标签</div>
-                            <div class="menu">
+                            <div class="menu" id="tagMenu">
                                 <div th:each="tag : ${tags}" class="item" th:data-value="${tag.id}" th:text="${tag.name}"></div>
                             </div>
                         </div>
@@ -167,6 +167,10 @@
     });
     $('.ui.dropdown').dropdown({
         on: 'hover'
+    });
+    <!--实现鼠标点击下拉菜单以外的地方,菜单自动隐藏-->
+    $('.ui.container').click(function(){
+        $("#tagMenu").hide();
     });
     $('.ui.form').form({
         fields: {

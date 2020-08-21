@@ -130,7 +130,7 @@
                             <div class="content">
                                 <a class="author">
                                     <span th:text="${comment.nickName}">Matt</span>&ensp;
-                                    <div class="ui mini basic blue left pointing label m-padded-mini" th:if="${comment.adminComment}">博主</div>
+                                    <div class="ui mini basic blue left pointing label m-padded-mini" th:if="${comment.adminComment}">帖主</div>
                                 </a>
                                 <div class="metadata">
                                     <span class="date" th:text="${#dates.format(comment.createdTime, 'yyyy-MM-dd HH:mm')}">Today at 5:42PM</span>

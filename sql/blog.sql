@@ -113,4 +113,4 @@ CREATE TABLE `t_user` (
 
 /*Data for the table `t_user` */
 
-insert  into `t_user`(`id`,`avatar`,`created_time`,`email`,`nick_name`,`password`,`type`,`updated_time`,`username`) values (1,'/images/avatar.jpg','2020-06-30 18:34:26.000000','example@hotmail.com','example','4a7d1ed414474e4033ac29ccb8653d9b',1,'2020-06-30 18:35:06.000000','example');
+insert  into `t_user`(`id`,`avatar`,`created_time`,`email`,`nick_name`,`password`,`type`,`updated_time`,`username`) values (1,'/images/avatar.jpg','2020-06-30 18:34:26.000000','example@hotmail.com','admin','21232f297a57a5a743894a0e4a801fc3',1,'2020-06-30 18:35:06.000000','admin');
