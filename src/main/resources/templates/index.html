@@ -148,7 +148,7 @@
                 <!--最新推荐-->
                 <div class="ui segments m-black m-margin-top-large animated fadeInRightBig">
                     <div class="ui secondary segment">
-                        <i class="bookmark icon"></i>本站十大
+                        <i class="bookmark icon"></i>十大热门
                     </div>
                     <div th:each="recommendBlog : ${recommendBlogs}" class="ui segment">
                         <a th:href="@{/blog/{id}(id=${recommendBlog.id})}" th:text="${recommendBlog.title}" class="m-black">我的第一篇博客</a>

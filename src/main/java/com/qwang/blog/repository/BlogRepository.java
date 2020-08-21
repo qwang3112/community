@@ -1,7 +1,6 @@
 package com.qwang.blog.repository;
 
 import com.qwang.blog.model.po.Blog;
-import com.qwang.blog.model.po.User;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -23,8 +22,6 @@ public interface BlogRepository extends JpaRepository<Blog, Long>, JpaSpecificat
     @Query("select b from Blog b")
     List<Blog> findTop(Pageable pageable);
 
-    @Query("select b from Blog b order by b.views desc")
-    List<Blog> findTopTen(Pageable pageable);
 
     @Query("select b from Blog b where b.title like ?1 or b.content like ?1")
     Page<Blog> findByQuery(String query, Pageable pageable);
@@ -39,6 +36,4 @@ public interface BlogRepository extends JpaRepository<Blog, Long>, JpaSpecificat
 
     @Query("select b from Blog b where function('date_format', b.updatedTime,'%Y') = ?1")
     List<Blog> findByYear(String year);
-
-    public List<Blog> findAllByUserId(Long userId);
 }

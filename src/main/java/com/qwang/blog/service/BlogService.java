@@ -24,7 +24,6 @@ public interface BlogService {
 
     Page<Blog> listBlog(Long tagId, Pageable pageable);
 
-//    List<Blog> listBlogByUserId(Long userId);
     Page<Blog> listBlogByUserId(Long userId, Pageable pageable);
 
     List<Blog> listRecommendBlogTop(Integer topSize);

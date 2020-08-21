@@ -149,8 +149,8 @@ public class BlogServiceImpl implements BlogService {
      */
     @Override
     public List<Blog> listBlogTopTen(Integer topSize) {
-        Pageable pageable = PageRequest.of(0, topSize, Sort.by(Sort.Direction.DESC, "updatedTime"));
-        return blogRepository.findTopTen(pageable);
+        Pageable pageable = PageRequest.of(0, topSize, Sort.by(Sort.Direction.DESC, "views"));
+        return blogRepository.findTop(pageable);
     }
 
     @Override
