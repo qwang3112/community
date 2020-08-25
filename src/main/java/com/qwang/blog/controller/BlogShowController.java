@@ -53,8 +53,8 @@ public class BlogShowController {
         blog.setType(typeService.getType(blog.getType().getId()));
         // 获取标签集
         blog.setTags(tagService.listTag(tagIds));
-        // 给默认图片
-        blog.setCover(CoverUtils.getRandomCover());
+        // 不要图片
+//        blog.setCover(CoverUtils.getRandomCover());
         // 保存到数据库
         Blog b = blogService.saveBlog(blog);
         if (b == null) {
