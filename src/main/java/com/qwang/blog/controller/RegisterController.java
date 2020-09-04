@@ -6,9 +6,7 @@ import com.qwang.blog.service.UserService;
 import com.qwang.blog.util.MD5Utils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpSession;
@@ -18,6 +16,7 @@ import javax.servlet.http.HttpSession;
  * @date 2020/7/27
  */
 @Controller
+@RequestMapping("")
 public class RegisterController {
 
 
@@ -29,7 +28,7 @@ public class RegisterController {
 
     @GetMapping("/register")
     public String registerPage() {
-        return "/register";
+        return "register";
     }
 
 

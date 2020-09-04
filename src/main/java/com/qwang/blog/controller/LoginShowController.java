@@ -5,15 +5,13 @@ import com.qwang.blog.service.UserService;
 import com.qwang.blog.util.MD5Utils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpSession;
 
 @Controller
-//@RequestMapping("/")
+@RequestMapping("")
 public class LoginShowController {
 
     @Autowired
@@ -21,7 +19,7 @@ public class LoginShowController {
 
     @GetMapping("/login")
     public String loginPage() {
-        return "/login";
+        return "login";
     }
 
     @PostMapping("/login")

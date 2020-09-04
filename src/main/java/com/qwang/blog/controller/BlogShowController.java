@@ -5,7 +5,6 @@ import com.qwang.blog.model.po.User;
 import com.qwang.blog.service.BlogService;
 import com.qwang.blog.service.TagService;
 import com.qwang.blog.service.TypeService;
-import com.qwang.blog.util.CoverUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,10 +18,10 @@ import javax.servlet.http.HttpSession;
  * @date 2020/7/27
  */
 @Controller
-
+@RequestMapping("")
 public class BlogShowController {
 
-    private static final String WRITE = "/write";
+    private static final String WRITE = "write";
     private static final String REDIRECT_LIST = "redirect:/index";
 
     @Autowired
